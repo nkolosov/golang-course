@@ -23,6 +23,9 @@ TODO
 
 ## Задачи для менторской сессии
 [Обход массива в цикле](../../examples/02-array-and-slices/01/main.go)
+
 [Особенности работы с append](../../examples/02-array-and-slices/02/main.go)
+
 [Особенности работы с большими массивами](../../examples/02-array-and-slices/03/main.go)
+
 [Как работает адресная арифметика](../../examples/02-array-and-slices/04/main.go)
