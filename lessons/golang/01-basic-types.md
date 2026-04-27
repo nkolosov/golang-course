@@ -15,6 +15,7 @@
 
 ## Упражнение
 [Разработка геометрического калькулятора](../../homework/01-basic-types/geometry.md)
+
 [Разработка конвертера температурной шкалы](../../homework/01-basic-types/temperature.md)
 
 ## Вопросы для менторской сессии
@@ -27,6 +28,9 @@
 
 ## Задачи для менторской сессии
 [Оператор new & zero-value](../../examples/01-basic-types/01/main.go)
+
 [Выравнивание структур](../../examples/01-basic-types/02/main.go)
+
 [Встраивание структур](../../examples/01-basic-types/03/main.go)
+
 [Пустой интерфейс и пустая структура](../../examples/01-basic-types/04/main.go)
