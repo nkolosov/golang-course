@@ -8,8 +8,8 @@ func main() {
 	var x1 int
 	x2 := 0
 
-	fmt.Println(x1)
-	fmt.Println(x2)
+	fmt.Println(x1) // noinline
+	fmt.Println(x2) // noinline
 
 	var y1 *int
 	y2 := &x1
@@ -17,7 +17,7 @@ func main() {
 
 	x1 = 1
 
-	fmt.Println(y1)
-	fmt.Println(y2)
-	fmt.Println(y3)
+	fmt.Println(y1) // noinline
+	fmt.Println(y2) // noinline
+	fmt.Println(y3) // noinline
 }

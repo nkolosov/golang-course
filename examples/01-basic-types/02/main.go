@@ -13,7 +13,7 @@ type A struct {
 
 type B struct {
 	A int8
-	С int64
+	C int64
 	B int16
 }
 
