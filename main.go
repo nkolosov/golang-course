@@ -1,18 +1,21 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	fmt.Println(arr())
+	s := make([]int, 3, 5)
+	s[0] = 1
+	s[1] = 2
+	s[2] = 3
+
+	modify(s)
+
+	fmt.Println(s)          // ???
+	fmt.Println(s[:cap(s)]) // ???
 }
 
-func arr() []int {
-	a := []int{0, 1, 2, 3, 4}
-	a[0] = 1
-	a = append(a, 5)
-	newArr := append(a, 6)
-	a[0] = 10
-	return newArr
+func modify(s []int) {
+	s = append(s, 4)
+	s[0] = 10
+	s = append(s, 5)
 }
