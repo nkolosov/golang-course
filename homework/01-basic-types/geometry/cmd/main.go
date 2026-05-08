@@ -104,7 +104,13 @@ func handleArea(circleFlag *string, centerFlag *string, radiusFlag *float64, pol
 	fmt.Printf("Area: %.2f\n", area)
 }
 
-func handleContains(circleFlag *string, centerFlag *string, radiusFlag *float64, polygonFlag *bool, pointFlags *[]string) {
+func handleContains(
+	circleFlag *string,
+	centerFlag *string,
+	radiusFlag *float64,
+	polygonFlag *bool,
+	pointFlags *[]string,
+) {
 	point, err := parsePoint((*pointFlags)[0])
 	if err != nil {
 		fmt.Printf("Error parsing point: %v\n", err)
@@ -158,12 +164,12 @@ func parsePoint(pointStr string) (geometry.Point, error) {
 
 	x, err := strconv.ParseFloat(parts[0], 64)
 	if err != nil {
-		return geometry.Point{}, fmt.Errorf("invalid X coordinate: %v", err)
+		return geometry.Point{}, fmt.Errorf("invalid X coordinate: %w", err)
 	}
 
 	y, err := strconv.ParseFloat(parts[1], 64)
 	if err != nil {
-		return geometry.Point{}, fmt.Errorf("invalid Y coordinate: %v", err)
+		return geometry.Point{}, fmt.Errorf("invalid Y coordinate: %w", err)
 	}
 
 	return geometry.Point{X: x, Y: y}, nil
@@ -177,17 +183,17 @@ func parseCircle(circleStr string) (geometry.Circle, error) {
 
 	centerX, err := strconv.ParseFloat(parts[0], 64)
 	if err != nil {
-		return geometry.Circle{}, fmt.Errorf("invalid center X coordinate: %v", err)
+		return geometry.Circle{}, fmt.Errorf("invalid center X coordinate: %w", err)
 	}
 
 	centerY, err := strconv.ParseFloat(parts[1], 64)
 	if err != nil {
-		return geometry.Circle{}, fmt.Errorf("invalid center Y coordinate: %v", err)
+		return geometry.Circle{}, fmt.Errorf("invalid center Y coordinate: %w", err)
 	}
 
 	radius, err := strconv.ParseFloat(parts[2], 64)
 	if err != nil {
-		return geometry.Circle{}, fmt.Errorf("invalid radius: %v", err)
+		return geometry.Circle{}, fmt.Errorf("invalid radius: %w", err)
 	}
 
 	return geometry.Circle{
@@ -208,5 +214,6 @@ func parsePoints(pointFlags []string) ([]geometry.Point, error) {
 		}
 		points = append(points, point)
 	}
+
 	return points, nil
 }

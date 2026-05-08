@@ -6,12 +6,12 @@ import (
 
 const MinPoints = 3
 
-// Polygon represents a polygon defined by a slice of points
+// Polygon represents a polygon defined by a slice of points.
 type Polygon struct {
 	Points []Point
 }
 
-// Area calculates the area of the polygon using the shoelace formula
+// Area calculates the area of the polygon using the shoelace formula.
 func (p Polygon) Area() float64 {
 	if len(p.Points) < MinPoints {
 		return 0
@@ -20,7 +20,7 @@ func (p Polygon) Area() float64 {
 	var area float64
 	n := len(p.Points)
 
-	for i := 0; i < n; i++ {
+	for i := range n {
 		j := (i + 1) % n
 		area += p.Points[i].X * p.Points[j].Y
 		area -= p.Points[j].X * p.Points[i].Y
@@ -29,7 +29,7 @@ func (p Polygon) Area() float64 {
 	return math.Abs(area) / 2
 }
 
-// Perimeter calculates the perimeter of the polygon
+// Perimeter calculates the perimeter of the polygon.
 func (p Polygon) Perimeter() float64 {
 	if len(p.Points) < MinPoints {
 		return 0
@@ -38,7 +38,7 @@ func (p Polygon) Perimeter() float64 {
 	var perimeter float64
 	n := len(p.Points)
 
-	for i := 0; i < n; i++ {
+	for i := range n {
 		j := (i + 1) % n
 		perimeter += p.Points[i].DistanceTo(p.Points[j])
 	}
@@ -46,7 +46,7 @@ func (p Polygon) Perimeter() float64 {
 	return perimeter
 }
 
-// Contains checks if a point is inside the polygon using ray casting algorithm
+// Contains checks if a point is inside the polygon using ray casting algorithm.
 func (p Polygon) Contains(point Point) bool {
 	if len(p.Points) < MinPoints {
 		return false
@@ -55,7 +55,7 @@ func (p Polygon) Contains(point Point) bool {
 	intersections := 0
 	n := len(p.Points)
 
-	for i := 0; i < n; i++ {
+	for i := range n {
 		j := (i + 1) % n
 
 		// Check if point is on the edge
@@ -73,7 +73,7 @@ func (p Polygon) Contains(point Point) bool {
 	return intersections%2 == 1
 }
 
-// Helper function to check if point is on line segment
+// Helper function to check if point is on line segment.
 func isPointOnLineSegment(a, b, c Point) bool {
 	// Check if point c lies on the line segment from a to b
 	// Using cross product to check collinearity

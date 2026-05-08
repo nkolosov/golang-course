@@ -13,9 +13,19 @@ linters:
     - forbidigo
     - wsl_v5
     - varnamelen
+    - err113
+    - revive
   settings:
     gocognit:
       min-complexity: 20
     gocyclo:
       min-complexity: 15
-
+    nestif:
+      min-complexity: 7
+    gocritic:
+      settings:
+        ifElseChain:
+          minThreshold: 4
+    mnd:
+      ignored-numbers:
+        - "2"
